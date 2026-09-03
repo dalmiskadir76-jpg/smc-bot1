@@ -10,7 +10,7 @@ Additional filters applied:
 import logging
 import time
 
-from . import data_feed, smc_engine, state, telegram
+import data_feed, smc_engine, state, telegram
 from .data_feed import PAIRS
 from .smc_engine import PendingSetup, is_within_trading_session
 

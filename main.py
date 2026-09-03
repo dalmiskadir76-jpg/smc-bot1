@@ -90,3 +90,6 @@ def get_state(x_api_key: str = Header(default="")):
         "active_alerts": state.get("alerts", {}),
         "pending_fvg_setups": get_all_pending(),
     }
+    if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=10000)

@@ -8,11 +8,19 @@ Additional filters applied:
 - Retest-only trigger: alert ONLY when price first enters FVG zone
 """
 import logging
+import os
+import sys
 import time
 
-import data_feed, smc_engine, state, telegram
-from .data_feed import PAIRS
-from .smc_engine import PendingSetup, is_within_trading_session
+# Modul yollarini sistem yoluna ekle
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
+import data_feed
+import smc_engine
+import state
+import telegram
+from data_feed import PAIRS
+from smc_engine import PendingSetup, is_within_trading_session
 
 logger = logging.getLogger(__name__)
 

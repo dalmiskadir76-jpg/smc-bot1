@@ -1,7 +1,7 @@
 import asyncio
 from fastapi import FastAPI
 import uvicorn
-from .scanner import scan_all_pairs
+from scanner import scan_all_pairs
 
 app = FastAPI()
 

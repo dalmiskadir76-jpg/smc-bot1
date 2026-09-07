@@ -29,6 +29,7 @@ MIN_RR = 2.0
 # FVG minimum width thresholds (in price units) per pair
 FVG_MIN_WIDTH: Dict[str, float] = {
     "XAUUSD": 0.50,  # $0.50 minimum for gold
+    "XAUUSD=X": 0.50,
 }
 
 # Session windows (UTC hours).  Only London + New York allowed.

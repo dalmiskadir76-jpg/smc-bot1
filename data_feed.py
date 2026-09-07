@@ -8,7 +8,7 @@ import yfinance as yf
 logger = logging.getLogger(__name__)
 
 PAIRS = {
-    "XAUUSD": "GC=F",
+    "XAUUSD": "XAUUSD=X",
     "EURUSD": "EURUSD=X",
     "GBPUSD": "GBPUSD=X",
     "USDJPY": "USDJPY=X",

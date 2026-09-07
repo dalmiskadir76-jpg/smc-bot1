@@ -3,12 +3,19 @@ import logging
 from typing import Optional
 
 import pandas as pd
+import requests
 import yfinance as yf
 
 logger = logging.getLogger(__name__)
 
+# Yahoo Finance IP / Rate-limit engellerini aşmak için tarayıcı kimliği
+session = requests.Session()
+session.headers.update({
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+})
+
 PAIRS = {
-    "XAUUSD": "XAU=X",
+    "XAUUSD": "XAUUSD=X",
     "EURUSD": "EURUSD=X",
     "GBPUSD": "GBPUSD=X",
     "USDJPY": "USDJPY=X",
@@ -25,7 +32,7 @@ def fetch_candles(ticker: str, interval: str, period: str) -> Optional[pd.DataFr
     and a UTC DatetimeIndex, or None on failure.
     """
     try:
-        df = yf.download(ticker, interval=interval, period=period, progress=False)
+        df = yf.download(ticker, interval=interval, period=period, progress=False, session=session)
         if df is None or df.empty:
             logger.warning("No data returned for %s (%s/%s)", ticker, interval, period)
             return None
